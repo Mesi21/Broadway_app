@@ -9,17 +9,33 @@ class PlaysController < ApplicationController
   end
 
   def new
-      @play = Play.new
+    @play = Play.new
   end
 
   def create
-      @play = Play.new(play_params)
+    @play = Play.new(play_params)
 
-      if @play.save
-        redirect_to root_path
-      else
-        render 'new'
-      end
+    if @play.save
+      redirect_to root_path
+    else
+      render 'new'
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @play.update(play_params)
+      redirect_to play_path(@play)
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @play.destroy
+    redirect_to root_path
   end
 
   private
