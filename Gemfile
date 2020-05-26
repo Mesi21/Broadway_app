@@ -6,7 +6,7 @@ ruby '2.6.5'
 
 gem 'rails', '~> 5.2.4', '>= 5.2.4.2'
 gem 'sqlite3'
-gem 'puma', '~> 3.11'
+gem "puma", ">= 3.12.6"
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
@@ -18,6 +18,7 @@ gem 'simple_form', '~> 5.0', '>= 5.0.2'
 gem 'devise', '~> 4.7', '>= 4.7.1'
 gem 'popper_js', '~> 1.16'
 gem 'jquery-rails'
+gem 'paperclip', '~> 4.2.1'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
