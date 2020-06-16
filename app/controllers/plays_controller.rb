@@ -1,21 +1,22 @@
+# frozen_string_literal: true
+
 class PlaysController < ApplicationController
-  before_action :find_play, only: [:show, :edit, :update, :destroy]
+  before_action :find_play, only: %i[show edit update destroy]
 
   def index
     if params[:category].blank?
-      @plays = Play.all.order("created_at DESC")
+      @plays = Play.all.order('created_at DESC')
     else
       @category_id = Category.find_by(name: params[:category]).id
-      @plays = Play.where(:category_id => @category_id).order("created_at DESC")
+      @plays = Play.where(category_id: @category_id).order('created_at DESC')
     end
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @play = current_user.plays.build
-    @categories = Category.all.map{ |category| [category.name, category.id]}
+    @categories = Category.all.map { |category| [category.name, category.id] }
   end
 
   def create
@@ -30,7 +31,7 @@ class PlaysController < ApplicationController
   end
 
   def edit
-    @categories = Category.all.map{ |category| [category.name, category.id]}
+    @categories = Category.all.map { |category| [category.name, category.id] }
   end
 
   def update
@@ -49,11 +50,12 @@ class PlaysController < ApplicationController
   end
 
   private
-    def play_params
-      params.require(:play).permit(:title, :description, :director, :category_id, :play_img)
-    end
 
-    def find_play
-      @play = Play.find(params[:id])
-    end
+  def play_params
+    params.require(:play).permit(:title, :description, :director, :category_id, :play_img)
+  end
+
+  def find_play
+    @play = Play.find(params[:id])
+  end
 end
