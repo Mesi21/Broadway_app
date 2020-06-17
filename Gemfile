@@ -18,7 +18,7 @@ gem 'simple_form', '~> 5.0', '>= 5.0.2'
 gem 'devise', '~> 4.7', '>= 4.7.1'
 gem 'popper_js', '~> 1.16'
 gem 'jquery-rails'
-gem 'paperclip', '~> 4.2.1'
+gem 'paperclip', '~> 5.2.0'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
