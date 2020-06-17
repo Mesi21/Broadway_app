@@ -122,22 +122,18 @@
  }
  
  .links {
- 
      .btn-custom {
          padding: 3px 10px;
          font-weight: 300;
      }
- 
  }
  
  .play-links {
- 
      .btn-custom {
          padding: 3px 10px;
          font-weight: 300;
          margin-top: 40px;	
      }
- 
  }
  
  .play {
@@ -199,7 +195,6 @@
  }
 
  .reviews {
- 
      @include background-tile;
      margin-top: 40px;
  
@@ -219,9 +214,8 @@
              font-size: 1.05em;
              line-height: 1.5;
          }
- 
      }
- 
+
      .new-review {
          padding-top: 8px;
      }
@@ -279,7 +273,6 @@
          label {
              display: block;
          }
- 
      }
  
  }
@@ -300,5 +293,4 @@
      h2 {
          margin-top: 0;
      }
- 
  }
