@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class PlaysController < ApplicationController
-  before_action :find_play, only: %i[show edit update destroy]
+  before_action :find_play, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :edit]
 
   def index
     if params[:category].blank?
@@ -12,7 +13,13 @@ class PlaysController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    if @play.reviews.blank?
+      @average_review = 0
+    else
+      @average_review = @play.reviews.average(:rating).round(3)
+    end 
+  end
 
   def new
     @play = current_user.plays.build
