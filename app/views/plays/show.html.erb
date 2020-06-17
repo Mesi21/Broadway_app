@@ -1,0 +1,59 @@
+<div class="row">
+  <div class="col-md-4">
+    <%= image_tag @play.play_img.url(:play_show), class: "play-show" %>
+  </div>
+
+  <div class="col-md-8">
+    <div class="play-info">
+      <h2 class="play-title"><%= @play.title %></h2>
+      <h3 class="director"><span>From </span><i><%= @play.director %></i></h3>
+      <h4 class="director"><%= @play.category.name %></h4>
+      <h4 class="avg-rating">Average Rating</h4>
+			<div class="average-review-rating" data-score=<%= @average_review %>></div>
+			<span class="number-of-reviews"><em>From: </em><%= @play.reviews.count %> reviews </span>
+      <p class="play-desc"><%= @play.description %></p>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+	<div class="col-md-12">
+		<div class="reviews">
+			<h1> Reviews </h1>
+				<%= render @play.reviews %>
+				<div>
+					<%= link_to "Add Reviews", new_play_review_path(@play), class: "btn-custom" %>
+				</div>
+		</div>
+	</div>
+</div>
+
+<div class="links btn-group">
+    <% if user_signed_in? %>
+      <% if @play.user_id == current_user.id %>
+        <%= link_to "Back", root_path, class: "btn btn-info" %>
+        <%= link_to "Edit", edit_play_path(@play), class: "btn btn-danger" %>
+        <%= link_to "Delete", play_path, method: :delete, data: {confirm: "Are you sure you want to delete it?"}, class: "btn btn-default" %>
+      <% end %>
+    <% end %>
+</div>
+
+<script>
+	$('.review-rating').raty({
+		readOnly: true,
+		score: function() {
+			return $(this).attr('data-score');
+		},
+		path: '/assets/'
+	});
+</script>
+
+<script>
+	$('.average-review-rating').raty({
+		readOnly: true,
+		path: '/assets/',
+		score: function() {
+			return $(this).attr('data-score')
+		}
+	});
+</script>
