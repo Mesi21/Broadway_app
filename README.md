@@ -2,7 +2,7 @@
 
 # Broadway App
 
-It is a basic app, where users can add, update, update and destroy plays.
+An app where users can add, update, update and destroy plays.
 Users can also add, edit and destroy reviews.
 Each play can be rated using a star system and each play will also have average rating calculated and shown.
 Using the Devise gem, users can sign-up or if they are already signed-up they can sign-in.
