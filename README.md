@@ -39,7 +39,7 @@ For editing or deleting plays and reviews a user must sign-in.
 
 ## Contributors
 
-- Emese Molnar [@Mesi21](https://github.com/Mesi21)
+- Emese Molnár [@Mesi21](https://github.com/Mesi21)
 
 ## Course Project
 
